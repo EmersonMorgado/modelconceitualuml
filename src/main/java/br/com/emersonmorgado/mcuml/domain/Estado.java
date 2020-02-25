@@ -1,5 +1,6 @@
 package br.com.emersonmorgado.mcuml.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Estado implements Serializable {
     private Integer id;
     private String nome;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "estado")
     private List<Cidade> cidades = new ArrayList<>();
 
